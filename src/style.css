@@ -76,3 +76,138 @@ body {
   background-color: white;
   border-radius: 20px;
 }
+
+.form-input {
+  outline: none;
+  border: none;  
+  background-color: transparent;
+  font-size: 2rem;
+  color: var(--very-dark-cyan);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+-moz-appearance: textfield;
+}
+
+.outputs {
+  background-color: var(--very-dark-cyan);
+  border-radius: 10px;
+  padding: 25px;
+  /*max-width: 315px; */
+  width: 100%;
+}
+
+.outputs p {
+  color: var(--darker-grayish-cyan);
+}
+
+.input-label {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.inputs {
+  width: 100%;
+}
+
+
+.tip-btn {
+  background-color: var(--very-dark-cyan);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.tip-btn:hover {
+  background-color: var(--strong-cyan);
+  transition: background-color 0.3s ease;
+  color: var(--very-dark-cyan);
+  cursor: pointer;
+}
+
+.custom-tip {
+  background-color: var(--lighter-grayish-cyan);
+  border: none;
+  border-radius: 5px;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  color: var(--very-dark-cyan);
+  padding: 5px 10px;
+}
+
+.total {
+  font-size: 2.6rem;
+  color: var(--strong-cyan);
+}
+
+.tip-text {
+  color: white;
+}
+
+.reset {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 2rem;
+  
+}
+
+.warning {
+  color: indianred;
+}
+/* MEDIA QUERIES
+============================================= */
+
+@media (min-width: 768px) {
+
+ #tip-btns {
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ .outputs {
+  /* max-width: 415px; */
+  padding: 44px;
+ } 
+
+ /* .inputs {
+     width: 60%;
+ } */
+
+ .reset {
+     margin-top: 150px;
+ }
+
+  
+}
+
+@media (min-width: 992px) {
+ /* .outputs {
+  max-width: 415px;
+  padding: 44px;
+ } 
+
+ .inputs {
+     width: 60%;
+ }
+
+ .reset {
+     margin-top: 150px;
+ } */
+}

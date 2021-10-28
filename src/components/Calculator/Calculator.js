@@ -1,10 +1,38 @@
-import React from 'react';
+import {useState} from 'react';
 
 
-function Calculator() {
-return (
-    <div className="app-container d-flex flex-column flex-lg-row p-5  mx-auto">
-      <div className="inputs pe-lg-5 align-self-center">
+let tipBtn = document.querySelector('.tip-btn');
+
+const Calculator = () => {
+  const[billAmount, setBillAmount] = useState(0);
+  const[tipPercent, setTipPercent] = useState(0);
+  const[custom, setCustom] = useState(0);
+  const [peopleNum, setPeopleNum] = useState("");
+  const [tipAmount, setTipAmount] = useState(0);
+  const [total, setTotal] = useState(0);
+
+   const calculate = (e) => {
+    e.preventDefault();
+    let tipPercent = e.target.value;
+    console.log(tipPercent);
+  
+
+  //calculate
+   /*  if (billAmount > 0 && tipPercent > 0 && peopleNum >= 1) {
+      let tipPerPerson = ((tipPercent / 100) * billAmount) / peopleNum;
+      let amountPerPerson = billAmount / peopleNum + tipPerPerson;
+      setTipAmount(tipPerPerson.toFixed(2));
+      setTotal(amountPerPerson.toFixed(2));
+    } else {
+      setTipAmount("");
+      setTotal("");
+    } */
+  }
+
+  
+  return (
+    <div className="app-container d-flex flex-column flex-md-row p-5  mx-auto">
+      <div className="inputs pe-md-5 align-self-center">
         <form id="form" action="" >
 
         {/***** BILL *****/}
@@ -15,7 +43,9 @@ return (
                   <img src="./public/icon-dollar.svg" alt="" className="" />
                 </div>
                 <div>
-                  <input className="form-input text-end w-100 fw-700" type="number" id="bill" name="bill" placeholder="0" required />
+                  <input className="form-input text-end w-100 fw-700" type="number" id="bill" name="bill" placeholder={0} value={billAmount} onChange={(e) => {
+                    setBillAmount(e.target.value);
+                  }} />
                 </div>
               </div>
             </div>
@@ -24,11 +54,11 @@ return (
             <div className="container mb-5">
               <label htmlFor="tips" className="input-label">Select Tip %</label>
               <div id="tip-btns" className="row row-cols-3 row-cols-md-4 justify-content-center">
-                  <button className="tip-btn me-3 mb-3">5%</button>
-                  <button className="tip-btn me-3 mb-3">10%</button>
-                  <button className="tip-btn me-3 mb-3">15%</button>
-                  <button className="tip-btn me-3 mb-3">25%</button>
-                  <button className="tip-btn me-3 mb-3">50%</button>
+                  <button className="tip-btn me-3 mb-3" value="5" onClick={calculate}>5%</button>
+                  <button className="tip-btn me-3 mb-3" value="10">10%</button>
+                  <button className="tip-btn me-3 mb-3" value="15" >15%</button>
+                  <button className="tip-btn me-3 mb-3" value="25" >25%</button>
+                  <button className="tip-btn me-3 mb-3" value="50" >50%</button>
                   <input type="number" id="tip" className="custom-tip me-3 mb-3" placeholder="custom" />
               </div>
             </div>
@@ -44,7 +74,7 @@ return (
                   <img src="" alt="" className="" />
                 </div>
                 <div>
-                  <input className="form-input text-end w-100 fw-700" type="number" id="people" name="people" placeholder="0" required />
+                  <input className="form-input text-end w-100 fw-700" type="number" id="people" name="people" placeholder="0" />
                 </div>
               </div>
             </div>
@@ -58,7 +88,7 @@ return (
               <p>/ person</p>
             </div>
             <div>
-              <h2 className="total fw-700">$0.00</h2>
+              <h2 className="total fw-700">${tipAmount ? tipAmount : "0.00"}</h2>
             </div>
           </div>
           <div className="tip-amount d-flex justify-content-between">
@@ -67,15 +97,14 @@ return (
               <p>/ person</p>
             </div>
             <div>
-              <h2 className="total fw-700">$0.00</h2>
+              <h2 className="total fw-700">${total ? total : "0.00"}</h2>
             </div>
           </div>
             <button className="reset fw-700 w-100 py-3">RESET</button>
         </div>
     </div>
-    )
-}
-
+  );
+};
 
 
 export default Calculator;
