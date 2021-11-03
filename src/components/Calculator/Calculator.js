@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 
-let tipBtn = document.querySelector('.tip-btn');
+// let tipBtn = document.querySelector('.tip-btn');
 
 const Calculator = () => {
   const[billAmount, setBillAmount] = useState(0);
@@ -9,7 +9,7 @@ const Calculator = () => {
   const[custom, setCustom] = useState(0);
   const [peopleNum, setPeopleNum] = useState("");
   const [tipAmount, setTipAmount] = useState(0);
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState(0); 
 
    const calculate = (e) => {
     e.preventDefault();
