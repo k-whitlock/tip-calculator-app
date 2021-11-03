@@ -43,9 +43,7 @@ const Calculator = () => {
                   <img src="./public/icon-dollar.svg" alt="" className="" />
                 </div>
                 <div>
-                  <input className="form-input text-end w-100 fw-700" type="number" id="bill" name="bill" placeholder={0} value={billAmount} onChange={(e) => {
-                    setBillAmount(e.target.value);
-                  }} />
+                  <input className="form-input text-end w-100 fw-700" type="number" id="bill" name="bill" placeholder="0" value="" onChange=""/>
                 </div>
               </div>
             </div>
@@ -54,7 +52,7 @@ const Calculator = () => {
             <div className="container mb-5">
               <label htmlFor="tips" className="input-label">Select Tip %</label>
               <div id="tip-btns" className="row row-cols-3 row-cols-md-4 justify-content-center">
-                  <button className="tip-btn me-3 mb-3" value="5" onClick={calculate}>5%</button>
+                  <button className="tip-btn me-3 mb-3" value="5" onClick="">5%</button>
                   <button className="tip-btn me-3 mb-3" value="10">10%</button>
                   <button className="tip-btn me-3 mb-3" value="15" >15%</button>
                   <button className="tip-btn me-3 mb-3" value="25" >25%</button>
@@ -88,7 +86,7 @@ const Calculator = () => {
               <p>/ person</p>
             </div>
             <div>
-              <h2 className="total fw-700">${tipAmount ? tipAmount : "0.00"}</h2>
+              <h2 className="total fw-700">$0.00</h2>
             </div>
           </div>
           <div className="tip-amount d-flex justify-content-between">
@@ -97,7 +95,7 @@ const Calculator = () => {
               <p>/ person</p>
             </div>
             <div>
-              <h2 className="total fw-700">${total ? total : "0.00"}</h2>
+              <h2 className="total fw-700">$0.00</h2>
             </div>
           </div>
             <button className="reset fw-700 w-100 py-3">RESET</button>
