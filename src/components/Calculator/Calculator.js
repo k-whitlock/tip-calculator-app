@@ -6,10 +6,10 @@ import React, {useState} from 'react';
 const Calculator = () => {
   const [billAmount, setBillAmount] = useState(0);
   const [tipPercent, setTipPercent] = useState(0);
-  const [custom, setCustom] = useState(0);
+  //const [custom, setCustom] = useState(0);
   const [peopleNum, setPeopleNum] = useState(1);
-  const [tipAmount, setTipAmount] = useState("0.00");
-  const [total, setTotal] = useState("0.00"); 
+  const [tipAmount, setTipAmount] = useState(0);
+  const [total, setTotal] = useState(0); 
 
   const handleTotals = (e) => {
     e.preventDefault();
@@ -19,35 +19,26 @@ const Calculator = () => {
   if (!billAmount >= 0 && !tipPercent > 0) {
     return;
 
-  } else {
-    let tipAmount = (tipPercent * billAmount) / peopleNum;
-    console.log(tipAmount);
-    let total = +billAmount + tipAmount;
-    console.log(total);
-
-    setTipAmount(tipAmount);
-    setTotal(total);
-  }
-   
-   
-    
-  
-/*
-  //calculate
-   if (billAmount > 0 && tipPercent > 0) {
-      
-      setTipAmount(
-        (((tipPercent / 100) * billAmount) / peopleNum).toFixed(2)
-        );
-      setTotal(
-        ((tipAmount * peopleNum + billAmount) / peopleNum).toFixed(2)
-      );
     } else {
-      setTipAmount("");
-      setTotal("");
-    } */
+      let tipAmount = (tipPercent * billAmount) / peopleNum;
+      let total = +billAmount / peopleNum + tipAmount;
 
+      setTipAmount(tipAmount);
+      setTotal(total);
+    }
   };
+
+  const handleReset = () => {
+    console.log("RESET");
+    
+    setBillAmount(0)
+    setTipPercent(0);
+    setPeopleNum(0);
+    setTipAmount(0);
+    setTotal(0);
+  }
+
+
 
   
   return (
@@ -73,13 +64,14 @@ const Calculator = () => {
               <label htmlFor="tips" className="input-label">Select Tip %</label>
               <div id="tip-btns" className="row row-cols-3 row-cols-md-4 justify-content-center">
                   <button className="tip-btn me-3 mb-3" value="0.05" onClick={handleTotals}>5%</button>
-                  <button className="tip-btn me-3 mb-3" value="10">10%</button>
-                  <button className="tip-btn me-3 mb-3" value="15" >15%</button>
-                  <button className="tip-btn me-3 mb-3" value="25" >25%</button>
-                  <button className="tip-btn me-3 mb-3" value="50" >50%</button>
-                  <input type="number" id="tip" value={custom} className="custom-tip me-3 mb-3" placeholder="custom" 
+                  <button className="tip-btn me-3 mb-3" value="0.10" onClick={handleTotals}>10%</button>
+                  <button className="tip-btn me-3 mb-3" value="0.15" onClick={handleTotals}>15%</button>
+                  <button className="tip-btn me-3 mb-3" value="0.20" onClick={handleTotals}>20%</button>
+                  <button className="tip-btn me-3 mb-3" value="0.25" onClick={handleTotals}>25%</button>
+                  <button className="tip-btn me-3 mb-3" value="0.30" onClick={handleTotals}>30%</button>
+                 {/* <input type="number" id="tip" value={custom} className="custom-tip me-3 mb-3" placeholder="custom" 
                   onChange={(e) => setCustom(e.target.value)}
-                  />
+                  /> */}
               </div>
             </div>
 
@@ -117,10 +109,13 @@ const Calculator = () => {
               <p>/ person</p>
             </div>
             <div>
-              <h2 className="total fw-700" >${total.toFixed(2)}</h2>
+              <h2 className="total fw-700">${total.toFixed(2)}</h2>
             </div>
           </div>
-            <button className="reset fw-700 w-100 py-3">RESET</button>
+            <button 
+              className="reset fw-700 w-100 py-3"
+              onClick={handleReset}
+              >RESET</button>
         </div>
     </div>
   );
