@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 
 
-// let tipBtn = document.querySelector('.tip-btn');
-
 const Calculator = () => {
   const [billAmount, setBillAmount] = useState(0);
   const [tipPercent, setTipPercent] = useState(0);
@@ -16,8 +14,9 @@ const Calculator = () => {
     let tipPercent = e.target.value;
     console.log(tipPercent);
 
-  if (!billAmount >= 0 && !tipPercent > 0) {
-    return;
+  if (!billAmount >= 0 && !tipPercent > 0 && !peopleNum >= 0) {
+    setTipAmount("");
+    setTotal("");
 
     } else {
       let tipAmount = (tipPercent * billAmount) / peopleNum;
@@ -28,6 +27,16 @@ const Calculator = () => {
     }
   };
 
+  {/*} const isError = (e) => {
+    if(e.target.value <= 0) {
+      e.target.parentNode.classList.remove("d-none");
+      setTipAmount("");
+      setTotal("");
+    } else {
+      e.target.parentNode.classList.add("d-none");
+    }
+  };  */}
+
   const handleReset = () => {
     console.log("RESET");
     
@@ -36,7 +45,7 @@ const Calculator = () => {
     setPeopleNum(0);
     setTipAmount(0);
     setTotal(0);
-  }
+  };
 
 
 
@@ -79,7 +88,7 @@ const Calculator = () => {
             <div className="person-input mb-5 mb-lg-0">
               <div className="d-flex justify-content-between">
                 <label htmlFor="people" className="input-label">Number of people</label>
-                <p className="input-label warning ">Can't be zero</p>
+                <p className="input-label warning d-none">Can't be zero</p>
               </div>
               <div className="d-flex justify-content-between bg-lighter-cyan px-3">
                 <div>
