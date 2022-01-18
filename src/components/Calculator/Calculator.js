@@ -15,8 +15,8 @@ const Calculator = () => {
     console.log(tipPercent);
 
   if (!billAmount >= 0 && !tipPercent > 0 && !peopleNum >= 0) {
-    setTipAmount("");
-    setTotal("");
+      setTipAmount("");
+      setTotal("");
 
     } else {
       let tipAmount = (tipPercent * billAmount) / peopleNum;
@@ -27,7 +27,7 @@ const Calculator = () => {
     }
   };
 
-  {/*} const isError = (e) => {
+  /* const isError = (e) => {
     if(e.target.value <= 0) {
       e.target.parentNode.classList.remove("d-none");
       setTipAmount("");
@@ -35,7 +35,7 @@ const Calculator = () => {
     } else {
       e.target.parentNode.classList.add("d-none");
     }
-  };  */}
+  }; */
 
   const handleReset = () => {
     console.log("RESET");
@@ -101,6 +101,7 @@ const Calculator = () => {
             </div>
         </form>
       </div>
+
       {/***** OUTPUTS *****/}
       <div className="outputs">
           <div className="tip-amount d-flex justify-content-between">
