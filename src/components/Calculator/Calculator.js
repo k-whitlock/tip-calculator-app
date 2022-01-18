@@ -12,7 +12,6 @@ const Calculator = () => {
   const handleTotals = (e) => {
     e.preventDefault();
     let tipPercent = e.target.value;
-    console.log(tipPercent);
 
   if (!billAmount >= 0 && !tipPercent > 0 && !peopleNum >= 0) {
       setTipAmount("");
@@ -38,7 +37,6 @@ const Calculator = () => {
   }; */
 
   const handleReset = () => {
-    console.log("RESET");
     
     setBillAmount(0)
     setTipPercent(0);
