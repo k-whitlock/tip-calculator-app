@@ -63,7 +63,6 @@ input[type=number] {
   background-color: var(--very-dark-cyan);
   border-radius: 10px;
   padding: 25px;
-  /*max-width: 315px; */
   width: 100%;
 }
 
@@ -133,6 +132,7 @@ input[type=number] {
 .warning {
   color: indianred;
 }
+
 /* MEDIA QUERIES
 ============================================= */
 
@@ -144,32 +144,18 @@ input[type=number] {
  }
 
  .outputs {
-  /* max-width: 415px; */
   padding: 44px;
  } 
 
- /* .inputs {
-     width: 60%;
- } */
+ 
 
  .reset {
-     margin-top: 150px;
+    margin-top: 150px;
  }
 
   
 }
 
 @media (min-width: 992px) {
- /* .outputs {
-  max-width: 415px;
-  padding: 44px;
- } 
 
- .inputs {
-     width: 60%;
- }
-
- .reset {
-     margin-top: 150px;
- } */
 }
